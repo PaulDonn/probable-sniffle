@@ -1,0 +1,85 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Actions\Attacks\" />
+    <Folder Include="Actions\Spells\Abjuration\Level0\" />
+    <Folder Include="Actions\Spells\Abjuration\Level1\" />
+    <Folder Include="Actions\Spells\Abjuration\Level2\" />
+    <Folder Include="Actions\Spells\Abjuration\Level3\" />
+    <Folder Include="Actions\Spells\Abjuration\Level4\" />
+    <Folder Include="Actions\Spells\Abjuration\Level5\" />
+    <Folder Include="Actions\Spells\Abjuration\Level6\" />
+    <Folder Include="Actions\Spells\Abjuration\Level7\" />
+    <Folder Include="Actions\Spells\Abjuration\Level8\" />
+    <Folder Include="Actions\Spells\Abjuration\Level9\" />
+    <Folder Include="Actions\Spells\Conjuration\Level1\" />
+    <Folder Include="Actions\Spells\Conjuration\Level2\" />
+    <Folder Include="Actions\Spells\Conjuration\Level3\" />
+    <Folder Include="Actions\Spells\Conjuration\Level4\" />
+    <Folder Include="Actions\Spells\Conjuration\Level5\" />
+    <Folder Include="Actions\Spells\Conjuration\Level6\" />
+    <Folder Include="Actions\Spells\Conjuration\Level7\" />
+    <Folder Include="Actions\Spells\Conjuration\Level8\" />
+    <Folder Include="Actions\Spells\Conjuration\Level9\" />
+    <Folder Include="Actions\Spells\Divination\Level0\" />
+    <Folder Include="Actions\Spells\Divination\Level1\" />
+    <Folder Include="Actions\Spells\Divination\Level2\" />
+    <Folder Include="Actions\Spells\Divination\Level3\" />
+    <Folder Include="Actions\Spells\Divination\Level4\" />
+    <Folder Include="Actions\Spells\Divination\Level5\" />
+    <Folder Include="Actions\Spells\Divination\Level6\" />
+    <Folder Include="Actions\Spells\Divination\Level7\" />
+    <Folder Include="Actions\Spells\Divination\Level8\" />
+    <Folder Include="Actions\Spells\Divination\Level9\" />
+    <Folder Include="Actions\Spells\Enchantment\Level0\" />
+    <Folder Include="Actions\Spells\Enchantment\Level1\" />
+    <Folder Include="Actions\Spells\Enchantment\Level2\" />
+    <Folder Include="Actions\Spells\Enchantment\Level3\" />
+    <Folder Include="Actions\Spells\Enchantment\Level4\" />
+    <Folder Include="Actions\Spells\Enchantment\Level5\" />
+    <Folder Include="Actions\Spells\Enchantment\Level6\" />
+    <Folder Include="Actions\Spells\Enchantment\Level7\" />
+    <Folder Include="Actions\Spells\Enchantment\Level8\" />
+    <Folder Include="Actions\Spells\Enchantment\Level9\" />
+    <Folder Include="Actions\Spells\Evocation\Level0\" />
+    <Folder Include="Actions\Spells\Evocation\Level2\" />
+    <Folder Include="Actions\Spells\Evocation\Level3\" />
+    <Folder Include="Actions\Spells\Evocation\Level4\" />
+    <Folder Include="Actions\Spells\Evocation\Level5\" />
+    <Folder Include="Actions\Spells\Evocation\Level6\" />
+    <Folder Include="Actions\Spells\Evocation\Level7\" />
+    <Folder Include="Actions\Spells\Evocation\Level8\" />
+    <Folder Include="Actions\Spells\Evocation\Level9\" />
+    <Folder Include="Actions\Spells\Necromancy\Level0\" />
+    <Folder Include="Actions\Spells\Necromancy\Level1\" />
+    <Folder Include="Actions\Spells\Necromancy\Level2\" />
+    <Folder Include="Actions\Spells\Necromancy\Level3\" />
+    <Folder Include="Actions\Spells\Necromancy\Level4\" />
+    <Folder Include="Actions\Spells\Necromancy\Level5\" />
+    <Folder Include="Actions\Spells\Necromancy\Level6\" />
+    <Folder Include="Actions\Spells\Necromancy\Level7\" />
+    <Folder Include="Actions\Spells\Necromancy\Level8\" />
+    <Folder Include="Actions\Spells\Necromancy\Level9\" />
+    <Folder Include="Actions\Spells\Transmutation\Level0\" />
+    <Folder Include="Actions\Spells\Transmutation\Level2\" />
+    <Folder Include="Actions\Spells\Transmutation\Level3\" />
+    <Folder Include="Actions\Spells\Transmutation\Level4\" />
+    <Folder Include="Actions\Spells\Transmutation\Level5\" />
+    <Folder Include="Actions\Spells\Transmutation\Level6\" />
+    <Folder Include="Actions\Spells\Transmutation\Level7\" />
+    <Folder Include="Actions\Spells\Transmutation\Level8\" />
+    <Folder Include="Actions\Spells\Transmutation\Level9\" />
+    <Folder Include="Actions\Spells\Transmutation\Level1\" />
+    <Folder Include="Equipments\Armours\MediumArmour\" />
+    <Folder Include="Equipments\Armours\HeavyArmour\" />
+    <Folder Include="Equipments\Armours\Shields\" />
+    <Folder Include="Equipments\Weapons\MartialMeleeWeapons\" />
+    <Folder Include="Equipments\Weapons\MartialRangedWeapons\" />
+    <Folder Include="Races\NonPlayerRaces\" />
+  </ItemGroup>
+
+</Project>
