@@ -283,7 +283,7 @@ namespace DnD
             var handaxe = new Handaxe();
             creature1.AddToInventory(handaxe);
             creature1.EquipWeapon1(handaxe);
-            var padded = new Padded();
+            var padded = new PaddedArmour();
             creature1.AddToInventory(padded);
             creature1.EquipArmour(padded);
             creature1.SetMaxHP(25);
