@@ -26,7 +26,7 @@ namespace GameMechanics.Equipments.Armours
                     dexMod = 2;
                 }
             }
-            return BaseAC + dexMod;
+            return BaseAC + dexMod + PlusFactor;
         }
     }
 }
