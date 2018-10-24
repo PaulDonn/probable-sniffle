@@ -1,0 +1,29 @@
+﻿namespace GameMechanics.Enums
+{
+    public enum ToolProficiency
+    {
+        AlchemistSupplies,
+        BreweRSupplies,
+        CalligrapherSupplies,
+        CarpenterTools,
+        CartographerTools,
+        CobblerTools,
+        CookUtensils,
+        DisguiseKit,
+        ForgeryKit,
+        GlassblowerTools,
+        HerbalismKit,
+        JewelerTools,
+        LeatherworkerTools,
+        MasonTools,
+        NavigatorTools,
+        PainterSupplies,
+        PoisonerKit,
+        PotterTools,
+        SmithTools,
+        ThievesTools,
+        TinkerTools,
+        WeaverTools,
+        WoodcarverTools
+    }
+}
