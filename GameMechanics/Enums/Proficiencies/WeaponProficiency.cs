@@ -23,7 +23,7 @@
         //Martial Melee Weapons
         Battleaxe,
         Flail,
-        Galive,
+        Glaive,
         Greataxe,
         Greatsword,
         Halberd,
