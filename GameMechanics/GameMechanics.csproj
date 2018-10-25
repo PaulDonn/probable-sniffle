@@ -74,11 +74,6 @@
     <Folder Include="Actions\Spells\Transmutation\Level8\" />
     <Folder Include="Actions\Spells\Transmutation\Level9\" />
     <Folder Include="Actions\Spells\Transmutation\Level1\" />
-    <Folder Include="Equipments\Armours\MediumArmour\" />
-    <Folder Include="Equipments\Armours\HeavyArmour\" />
-    <Folder Include="Equipments\Armours\Shields\" />
-    <Folder Include="Equipments\Weapons\MartialMeleeWeapons\" />
-    <Folder Include="Equipments\Weapons\MartialRangedWeapons\" />
     <Folder Include="Races\NonPlayerRaces\" />
   </ItemGroup>
 

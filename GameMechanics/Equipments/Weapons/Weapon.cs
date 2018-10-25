@@ -16,7 +16,7 @@ namespace GameMechanics.Equipments.Weapons
         public abstract int NumberOfDice { get; }
         public abstract WeaponProficiency RequiredProficiency { get; }
         public virtual bool IsRanged => false;
-        public virtual AmmunitionType AmunitionType => AmmunitionType.None;
+        public virtual AmmunitionType AmmunitionType => AmmunitionType.None;
         public virtual int ShortRange => 0;
         public virtual int LongRange => 0;
         public virtual bool IsLight => false;
@@ -24,6 +24,7 @@ namespace GameMechanics.Equipments.Weapons
         public virtual bool IsThrown => false;
         public virtual bool IsTwoHanded => false;
         public virtual bool IsVersatile => false;
+        public virtual Die VersatileDamageDie => null;
         public virtual bool UsesAmunition => false;
         public virtual bool RequiresLoading => false;
         public bool IsLoaded { get; set; }
@@ -135,7 +136,7 @@ namespace GameMechanics.Equipments.Weapons
                             Ammunition ammunition = null;
                             if (UsesAmunition)
                             {
-                                if (attacker.EquipmentSet.Ammunition?.AmmunitionType == AmunitionType)
+                                if (attacker.EquipmentSet.Ammunition?.AmmunitionType == AmmunitionType)
                                 {
                                     ammunition = attacker.UseAmmuntion();
                                 }

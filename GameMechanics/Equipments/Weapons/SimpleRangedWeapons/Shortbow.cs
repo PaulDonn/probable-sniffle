@@ -26,7 +26,7 @@ namespace GameMechanics.Equipments.Weapons.SimpleRangedWeapons
 
         public override bool IsRanged => true;
 
-        public override AmmunitionType AmunitionType => AmmunitionType.Arrow;
+        public override AmmunitionType AmmunitionType => AmmunitionType.Arrow;
 
         public override int ShortRange => 80 / 5;
 

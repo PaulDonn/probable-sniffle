@@ -20,7 +20,7 @@ namespace GameMechanics.Equipments.Weapons.SimpleMeleeWeapons
 
         public override string Name => "Greatclub";
 
-        public override decimal Weight => 0.10M;
+        public override decimal Weight => 10M;
 
         public override decimal Value => 20M;
 

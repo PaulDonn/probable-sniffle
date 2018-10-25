@@ -24,9 +24,9 @@ namespace GameMechanics.Equipments.Weapons.SimpleMeleeWeapons
 
         public override decimal Value => 5.00M;
 
-        public override int ShortRange => 20;
+        public override int ShortRange => 20 / 5;
 
-        public override int LongRange => 60;
+        public override int LongRange => 60 / 5;
 
         public override bool IsLight => true;
 

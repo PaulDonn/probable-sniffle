@@ -5,25 +5,27 @@ using System.Text;
 
 namespace GameMechanics.Equipments.Armours.LightArmour
 {
-    public class StuddedLeatherArmour : Armour
+    public class HideArmour : Armour
     {
 
-        public override string Name => "Studded Leather Armour";
+        public override string Name => "Hide Armour";
 
-        public override decimal Weight => 13M;
+        public override decimal Weight => 12M;
 
-        public override decimal Value => 45.00M;
+        public override decimal Value => 10.00M;
 
         public override int BaseAC => 12;
 
         public override bool AddDexModifier => true;
 
-        public override ArmourProficiency RequiredProficiency => ArmourProficiency.LightArmour;
+        public override bool LimitDexModifier => true;
+
+        public override ArmourProficiency RequiredProficiency => ArmourProficiency.MediumArmour;
     }
 
-    public class StuddedLeatherArmourPlus1 : StuddedLeatherArmour
+    public class HideArmourPlus1 : HideArmour
     {
-        public override string Name => "Studded Leather Armour +1";
+        public override string Name => "Hide Armour +1";
 
         public override int PlusFactor => 1;
 
@@ -32,9 +34,9 @@ namespace GameMechanics.Equipments.Armours.LightArmour
         public override decimal Value => 1500.00M;
     }
 
-    public class StuddedLeatherArmourPlus2 : StuddedLeatherArmour
+    public class HideArmourPlus2 : HideArmour
     {
-        public override string Name => "Studded Leather Armour +2";
+        public override string Name => "Hide Armour +2";
 
         public override int PlusFactor => 2;
 
@@ -43,9 +45,9 @@ namespace GameMechanics.Equipments.Armours.LightArmour
         public override decimal Value => 6000.00M;
     }
 
-    public class StuddedLeatherArmourPlus3 : StuddedLeatherArmour
+    public class HideArmourPlus3 : HideArmour
     {
-        public override string Name => "Studded Leather Armour +3";
+        public override string Name => "Hide Armour +3";
 
         public override int PlusFactor => 3;
 
