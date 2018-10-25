@@ -14,7 +14,7 @@ namespace GameMechanics.Equipments.Armours.LightArmour
 
         public override decimal Value => 750.00M;
 
-        public override int BaseAC => 14;
+        public override int BaseAC => 15;
 
         public override bool AddDexModifier => true;
 
