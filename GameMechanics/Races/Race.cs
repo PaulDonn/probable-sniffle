@@ -18,13 +18,14 @@ namespace GameMechanics.Races
         public void AddRaceTraits(Creature creature)
         {
             AddAbilityScoreIncreases(creature.AbilityScores);
-            AddProficiencies();
+            AddProficiencies(creature.ProficiencySet);
+            AddTraitsAndFeatures(creature);
         }
 
         public void RemoveRaceTraits(Creature creature)
         {
             RemoveAbilityScoreIncreases(creature.AbilityScores);
-            RemoveProficiencies();
+            RemoveProficiencies(creature.ProficiencySet);
         }
 
         protected virtual void AddAbilityScoreIncreases(AbilityScores scores)
@@ -37,12 +38,22 @@ namespace GameMechanics.Races
             return;
         }
 
-        protected virtual void AddProficiencies()
+        protected virtual void AddProficiencies(ProficiencySet proficiencySet)
         {
             return;
         }
 
-        protected virtual void RemoveProficiencies()
+        protected virtual void RemoveProficiencies(ProficiencySet proficiencySet)
+        {
+            return;
+        }
+
+        protected virtual void AddTraitsAndFeatures(Creature creature)
+        {
+            return;
+        }
+
+        protected virtual void RemoveTraitsAndFeatures(Creature creature)
         {
             return;
         }

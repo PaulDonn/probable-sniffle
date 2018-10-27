@@ -24,5 +24,23 @@ namespace GameMechanics.Races.PlayerRaces
                 scores.Constitution -= 2;
             }
         }
+
+        protected override void AddTraitsAndFeatures(Creature creature)
+        {
+            
+        }
+
+        protected override void RemoveTraitsAndFeatures(Creature creature)
+        {
+            
+        }
+
+        protected override void AddProficiencies(ProficiencySet proficiencySet)
+        {
+        }
+
+        protected override void RemoveProficiencies(ProficiencySet proficiencySet)
+        {
+        }
     }
 }
