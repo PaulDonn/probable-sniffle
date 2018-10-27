@@ -38,6 +38,11 @@ namespace GameMechanics.Equipments.Weapons
             return DamageDie.Roll(NumberOfDice);
         }
 
+        public int RollVersatileDamage()
+        {
+            return VersatileDamageDie.Roll(NumberOfDice);
+        }
+
         public List<string> GetAvailableActions()
         {
             List<string> actions = new List<string>();
@@ -58,7 +63,7 @@ namespace GameMechanics.Equipments.Weapons
             return actions;
         }
 
-        public void MakeDefaultAttack(CombatEncounter encounter, Creature attacker, Creature target)
+        public void MakeDefaultAttack(CombatEncounter encounter, Creature attacker, Creature target, bool hasAdvantage = false, bool hasDisadvantage = false)
         {
             if(IsRanged)
             {
@@ -70,8 +75,13 @@ namespace GameMechanics.Equipments.Weapons
             }
         }
 
-        public void MakeMeleeWeaponAttack(CombatEncounter encounter, Creature attacker, Creature target)
+        public void MakeMeleeWeaponAttack(CombatEncounter encounter, Creature attacker, Creature target, bool hasAdvantage = false, bool hasDisadvantage = false, bool isVersatileAttack = false)
         {
+            if(IsHeavy && (attacker.Size == Size.Small || attacker.Size == Size.Tiny))
+            {
+                hasDisadvantage = true;
+            }
+
             if (!IsRanged)
             {
                 var range = 1;
@@ -84,10 +94,9 @@ namespace GameMechanics.Equipments.Weapons
                 var distance = Util.GetDistance(attackerCoordinates, targetCoordinates);
                 if (distance <= range)
                 {
-
                     using (var d20 = new d20())
                     {
-                        var toHit = d20.Roll();
+                        var toHit = d20.Roll(hasAdvantage, hasDisadvantage);
                         var abilityModifier = attacker.AbilityScores.StrengthModifier;
                         if (IsFinesse && attacker.AbilityScores.DexterityModifier > attacker.AbilityScores.StrengthModifier)
                         {
@@ -102,7 +111,14 @@ namespace GameMechanics.Equipments.Weapons
 
                         if (toHit >= target.ArmourClass)
                         {
-                            target.ReceiveDamage(DamageType, RollDamage() + abilityModifier);
+                            if(isVersatileAttack && IsVersatile)
+                            {
+                                target.ReceiveDamage(DamageType, RollVersatileDamage() + abilityModifier);
+                            }
+                            else
+                            {
+                                target.ReceiveDamage(DamageType, RollDamage() + abilityModifier);
+                            }
                         }
                     }
                 }
@@ -117,8 +133,12 @@ namespace GameMechanics.Equipments.Weapons
             }
         }
 
-        public void MakeRangedWeaponAttack(CombatEncounter encounter, Creature attacker, Creature target)
+        public void MakeRangedWeaponAttack(CombatEncounter encounter, Creature attacker, Creature target, bool hasAdvantage = false, bool hasDisadvantage = false)
         {
+            if (IsHeavy && (attacker.Size == Size.Small || attacker.Size == Size.Tiny))
+            {
+                hasDisadvantage = true;
+            }
 
             if (IsRanged || IsThrown)
             {
@@ -131,7 +151,7 @@ namespace GameMechanics.Equipments.Weapons
                     {
                         using (var d20 = new d20())
                         {
-                            var toHit = d20.Roll();
+                            var toHit = d20.Roll(hasAdvantage,hasDisadvantage);
                             var abilityModifier = attacker.AbilityScores.DexterityModifier;
                             Ammunition ammunition = null;
                             if (UsesAmunition)
