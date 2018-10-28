@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using GameMechanics.Creatures;
 using GameMechanics.Enums;
+using GameMechanics.Traits;
 
 namespace GameMechanics.Races
 {
@@ -10,22 +12,35 @@ namespace GameMechanics.Races
 
         public abstract Size Size { get; }
 
-        public virtual void LevelUp(PlayerCharacter pc)
+        public virtual void LevelUp(Creature creature)
         {
             return;
+        }
+
+        public virtual List<Condition> GetConditionResistances()
+        {
+            return new List<Condition>();
+        }
+
+        public virtual List<Condition> GetConditionImmunities()
+        {
+            return new List<Condition>();
         }
 
         public void AddRaceTraits(Creature creature)
         {
             AddAbilityScoreIncreases(creature.AbilityScores);
             AddProficiencies(creature.ProficiencySet);
-            AddTraitsAndFeatures(creature);
+            AddTraitsAndFeatures(creature.Traits);
+            AddLanguages(creature.Languages);
         }
 
         public void RemoveRaceTraits(Creature creature)
         {
             RemoveAbilityScoreIncreases(creature.AbilityScores);
             RemoveProficiencies(creature.ProficiencySet);
+            RemoveTraitsAndFeatures(creature.Traits);
+            RemoveLanguages(creature.Languages);
         }
 
         protected virtual void AddAbilityScoreIncreases(AbilityScores scores)
@@ -48,12 +63,22 @@ namespace GameMechanics.Races
             return;
         }
 
-        protected virtual void AddTraitsAndFeatures(Creature creature)
+        protected virtual void AddTraitsAndFeatures(List<Trait> traits)
         {
             return;
         }
 
-        protected virtual void RemoveTraitsAndFeatures(Creature creature)
+        protected virtual void RemoveTraitsAndFeatures(List<Trait> traits)
+        {
+            return;
+        }
+
+        protected virtual void AddLanguages(List<Language> languages)
+        {
+            return;
+        }
+
+        protected virtual void RemoveLanguages(List<Language> languages)
         {
             return;
         }

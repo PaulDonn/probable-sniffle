@@ -8,7 +8,7 @@ namespace GameMechanics.Classes
     {
         public abstract Die HitDie { get; }
 
-        public abstract void LevelUp(PlayerCharacter pc);
+        public abstract void LevelUp(Creature creature);
 
         public void AddClassTraits(Creature creature)
         {
