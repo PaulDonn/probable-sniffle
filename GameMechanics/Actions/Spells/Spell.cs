@@ -1,4 +1,6 @@
 ﻿using GameMechanics.Creatures;
+using GameMechanics.Encounters;
+using GameMechanics.Encounters.Tiles;
 using GameMechanics.Enums;
 using System;
 using System.Collections.Generic;
@@ -33,21 +35,21 @@ namespace GameMechanics.Actions.Spells
 
         public virtual DamageType DamageType { get { return DamageType.None; } }
 
-        public void Cast(Creature caster, List<Creature> targets)
+        public void Cast(CombatEncounter combatEncounter, Creature caster, List<Creature> targets, Tile targetTile)
         {
-            CastAtLevel(caster, targets, this.MinSpellLevel);
+            CastAtLevel(combatEncounter, caster, targets, targetTile, this.MinSpellLevel);
         }
 
-        public void CastAtLevel(Creature caster, List<Creature> targets, int level)
+        public void CastAtLevel(CombatEncounter combatEncounter, Creature caster, List<Creature> targets, Tile targetTile, int level)
         {
             ValidateCasting(caster, targets, level);
             ExpendSpellSlot(caster.SpellSlots, level);
-            CastSpell(caster, targets, level);
+            CastSpell(combatEncounter, caster, targets, targetTile, level);
         }
 
-        public abstract void CastSpell(Creature caster, List<Creature> targets, int level);
+        public abstract void CastSpell(CombatEncounter combatEncounter, Creature caster, List<Creature> targets, Tile targetTile, int level);
         
-        public virtual void CheckTileSpellEffects() { }
+        public virtual void CheckTileSpellEffects(CombatEncounter combatEncounter, Tile tile) { }
 
         public void ValidateCasting(Creature caster, List<Creature> targets, int level)
         {
