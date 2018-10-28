@@ -2,6 +2,7 @@
 using GameMechanics.Enums;
 using GameMechanics.Traits;
 using GameMechanics.Traits.Senses;
+using GameMechanics.Utils;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,9 +17,9 @@ namespace GameMechanics.Races.PlayerRaces
             ToolProficiency = toolProficiency;
         }
 
-        public override int Speed { get { return 25; } }
+        public override int Speed => 25 / 5;
 
-        public override Size Size { get { return Size.Medium; } }
+        public override Size Size => Size.Medium;
 
         protected override void AddAbilityScoreIncreases(AbilityScores scores)
         {
@@ -43,22 +44,9 @@ namespace GameMechanics.Races.PlayerRaces
 
         protected override void RemoveTraitsAndFeatures(List<Trait> traits)
         {
-            var senses = traits.Where(n => n.GetType() == typeof(Sense));
-            Trait traitToRemove = null;
-            foreach (var trait in senses)
-            {
-                var sense = trait as Sense;
-                if (sense.Name == "Darkvision" && sense.Range == 60)
-                {
-                    traitToRemove = trait;
-                    break;
-                }
-            }
-            if(traitToRemove != null)
-            {
-                traits.Remove(traitToRemove);
-                traitToRemove = null;
-            }
+            var senses = traits.Where(n => n.GetType() == typeof(Sense)) as List<Sense>;
+            var darkvision = senses.First(n => n.Name == Constants.Darkvision && n.Range == 60);
+            traits.Remove(darkvision);
         }
 
         protected override void AddProficiencies(ProficiencySet proficiencySet)

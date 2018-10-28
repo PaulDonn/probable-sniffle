@@ -13,7 +13,7 @@ namespace GameMechanics.Traits.Senses
 
         public Darkvision(int range)
         {
-            _range = range;
+            _range = range / 5;
         }
     }
 }

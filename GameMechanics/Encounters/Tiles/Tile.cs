@@ -1,5 +1,6 @@
 ﻿using GameMechanics.Actions.Spells;
 using GameMechanics.Creatures;
+using GameMechanics.Enums;
 using GameMechanics.Equipments;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace GameMechanics.Encounters.Tiles
 
         public List<Spell> SpellEffects { get; set; }
 
+        public LightLevel LightLevel { get; set; }
+
         public bool IsLit => false;
 
         public Tile()
@@ -26,12 +29,24 @@ namespace GameMechanics.Encounters.Tiles
             SpellEffects = new List<Spell>();
         }
 
-        public void CheckTileSpellEffects()
+        public void SetLightLevel(LightLevel lightLevel)
         {
-            foreach (var spellEffect in SpellEffects)
+            switch(lightLevel)
             {
-                spellEffect.CheckTileSpellEffects();
+                case LightLevel.MagicalDark:
+                    LightLevel = LightLevel;
+                    break;
+                case LightLevel.MagicalDim:
+                    LightLevel = LightLevel;
+                    break;
+                case LightLevel.MagicalBright:
+                    LightLevel = lightLevel;
+                    break;
+                default:
+                    LightLevel = (LightLevel)Math.Max((int)LightLevel, (int)lightLevel);
+                    break;
             }
+
         }
         
     }

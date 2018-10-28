@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GameMechanics.Actions.Spells;
 using GameMechanics.Creatures;
 using GameMechanics.Enums;
 using GameMechanics.Traits;
@@ -33,6 +34,7 @@ namespace GameMechanics.Races
             AddProficiencies(creature.ProficiencySet);
             AddTraitsAndFeatures(creature.Traits);
             AddLanguages(creature.Languages);
+            AddSpells(creature.KnownSpells);
         }
 
         public void RemoveRaceTraits(Creature creature)
@@ -41,6 +43,7 @@ namespace GameMechanics.Races
             RemoveProficiencies(creature.ProficiencySet);
             RemoveTraitsAndFeatures(creature.Traits);
             RemoveLanguages(creature.Languages);
+            RemoveSpells(creature.KnownSpells);
         }
 
         protected virtual void AddAbilityScoreIncreases(AbilityScores scores)
@@ -49,6 +52,16 @@ namespace GameMechanics.Races
         }
 
         protected virtual void RemoveAbilityScoreIncreases(AbilityScores scores)
+        {
+            return;
+        }
+
+        protected virtual void AddSkills(List<Skill> skills)
+        {
+            return;
+        }
+
+        protected virtual void RemoveSkills(List<Skill> skills)
         {
             return;
         }
@@ -79,6 +92,16 @@ namespace GameMechanics.Races
         }
 
         protected virtual void RemoveLanguages(List<Language> languages)
+        {
+            return;
+        }
+
+        protected virtual void AddSpells(List<Spell> spells)
+        {
+            return;
+        }
+
+        protected virtual void RemoveSpells(List<Spell> spells)
         {
             return;
         }

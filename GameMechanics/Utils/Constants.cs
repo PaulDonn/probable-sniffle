@@ -21,5 +21,11 @@ namespace GameMechanics.Utils
         public static readonly string Restrained = "Restrained";
         public static readonly string Stunned = "Stunned";
         public static readonly string Unconscious = "Unconscious";
+
+        //Traits and Features
+        public static readonly string Darkvision = "Darkvision";
+
+        //Spells
+        public static readonly string DancingLights = "DancingLights";
     }
 }

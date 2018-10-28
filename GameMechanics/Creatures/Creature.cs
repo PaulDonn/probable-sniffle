@@ -225,7 +225,7 @@ namespace GameMechanics.Creatures
             //Get Shield AC Bonus
             if (EquipmentSet.Shield != null && ProficiencySet.ArmourProficiencies.Contains(ArmourProficiency.Shields))
             {
-                ac += 2;
+                ac += 2 + EquipmentSet.Shield.PlusFactor;
             }
 
             //Get Cover AC Bonus
@@ -239,7 +239,10 @@ namespace GameMechanics.Creatures
         {
             var conditions = new List<Condition>();
 
-            //Get Race Condition Resistances
+            //Get Race Condition Resistancesif (Race != null)
+            {
+                conditions.AddRange(Race.GetConditionResistances());
+            }
 
             //Get Class Condition Resistances
 
@@ -255,6 +258,10 @@ namespace GameMechanics.Creatures
             var conditions = new List<Condition>();
 
             //Get Race Condition Immunities
+            if (Race != null)
+            {
+                conditions.AddRange(Race.GetConditionImmunities());
+            }
 
             //Get Class Condition Immunities
 
