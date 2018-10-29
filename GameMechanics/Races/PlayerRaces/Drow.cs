@@ -1,5 +1,6 @@
 ﻿using GameMechanics.Actions.Spells;
 using GameMechanics.Actions.Spells.Evocation.Level0;
+using GameMechanics.Actions.Spells.Evocation.Level1;
 using GameMechanics.Creatures;
 using GameMechanics.Enums;
 using GameMechanics.Traits;
@@ -14,6 +15,18 @@ namespace GameMechanics.Races.PlayerRaces
 {
     public class Drow : Elf
     {
+        public override void LevelUp(Creature creature)
+        {
+            if(creature.Level == 3)
+            {
+                creature.KnownSpells.Add(new FaerieFire());
+            }
+            if(creature.Level == 5)
+            {
+                creature.KnownSpells.Add(new Darkness());
+            }
+        }
+
         protected override void AddAbilityScoreIncreases(AbilityScores scores)
         {
             if (scores != null)

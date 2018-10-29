@@ -21,13 +21,13 @@ namespace GameMechanics.Actions.Spells.Evocation.Level0
 
         public override Range Range => Range._120Feet;
 
-        public override bool RequiresConcentration => base.RequiresConcentration;
+        public override bool RequiresConcentration => true;
 
-        public override bool RequiresVerbal => base.RequiresVerbal;
+        public override bool RequiresVerbal => true;
 
-        public override bool RequiresSomatic => base.RequiresSomatic;
+        public override bool RequiresSomatic => true;
 
-        public override bool RequiresMaterial => base.RequiresMaterial;
+        public override bool RequiresMaterial => true;
 
         public override void CastSpell(CombatEncounter combatEncounter, Creature caster, List<Creature> targets, Tile targetTile, int level)
         {
