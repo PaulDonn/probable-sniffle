@@ -10,7 +10,7 @@ namespace GameMechanics.Races.PlayerRaces
 {
     public class Dwarf : Race
     {
-        public ToolProficiency ToolProficiency { get; }
+        private ToolProficiency ToolProficiency { get; }
 
         public Dwarf(ToolProficiency toolProficiency)
         {
@@ -88,6 +88,16 @@ namespace GameMechanics.Races.PlayerRaces
         {
             languages.Remove(Language.Common);
             languages.Remove(Language.Dwarvish);
+        }
+
+        protected override void AddDamageResistances(List<DamageType> resistances)
+        {
+            resistances.Add(DamageType.Poison);
+        }
+
+        protected override void RemoveDamageResistances(List<DamageType> resistances)
+        {
+            resistances.Remove(DamageType.Poison);
         }
     }
 }
