@@ -216,11 +216,11 @@ namespace GameMechanics.Encounters
             }
             if (spellLevel.HasValue)
             {
-                spell.CastAtLevel(caster, new List<Creature> { target }, spellLevel.Value);
+                spell.CastAtLevel(this, caster, new List<Creature> { target }, null, spellLevel.Value);
             }
             else
             {
-                spell.Cast(caster, new List<Creature> { target });
+                spell.Cast(this, caster, new List<Creature> { target }, null);
             }
         }
 
@@ -252,6 +252,19 @@ namespace GameMechanics.Encounters
             if (equipment.GetType() == typeof(Armour))
             {
                 activeCreature.EquipArmour((Armour)equipment);
+            }
+        }
+
+
+
+        public void CheckTileSpellEffects()
+        {
+            foreach (var tile in Field)
+            {
+                foreach (var spellEffect in tile.SpellEffects)
+                {
+                    spellEffect.CheckTileSpellEffects(this, tile);
+                }
             }
         }
 

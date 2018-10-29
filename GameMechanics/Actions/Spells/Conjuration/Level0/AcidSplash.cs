@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using GameMechanics.Creatures;
 using GameMechanics.Dice;
+using GameMechanics.Encounters;
+using GameMechanics.Encounters.Tiles;
 using GameMechanics.Enums;
 
 namespace GameMechanics.Actions.Spells.Conjuration.Level0
@@ -25,7 +27,7 @@ namespace GameMechanics.Actions.Spells.Conjuration.Level0
 
         public override DamageType DamageType => base.DamageType;
 
-        public override void CastSpell(Creature caster, List<Creature> targets, int level)
+        public override void CastSpell(CombatEncounter combatEncounter, Creature caster, List<Creature> targets, Tile targetTile, int level)
         {
             using (var d6 = new d6())
             {

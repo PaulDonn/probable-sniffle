@@ -3,7 +3,7 @@
     public enum ToolProficiency
     {
         AlchemistSupplies,
-        BreweRSupplies,
+        BrewerSupplies,
         CalligrapherSupplies,
         CarpenterTools,
         CartographerTools,
