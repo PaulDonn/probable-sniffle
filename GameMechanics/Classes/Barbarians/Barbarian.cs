@@ -1,12 +1,12 @@
 ﻿using GameMechanics.Creatures;
 using GameMechanics.Dice;
 
-namespace GameMechanics.Classes
+namespace GameMechanics.Classes.Barbarians
 {
-    public class Fighter : Class
+    public class Barbarian : Class
     {
-        private Die _hitDie = new d10();
-        public override Die HitDie { get { return _hitDie; } }
+        private Die _hitDie = new d12();
+        public override Die HitDie { get { return _hitDie;  } }
 
         public override void LevelUp(Creature creature)
         {

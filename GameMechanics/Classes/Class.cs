@@ -10,6 +10,10 @@ namespace GameMechanics.Classes
 
         public abstract void LevelUp(Creature creature);
 
+        //public abstract void AddLevelOne(Creature creature);
+
+        //public abstract void RemoveLevelOne(Creature creature);
+
         public void AddClassTraits(Creature creature)
         {
             throw new NotImplementedException();

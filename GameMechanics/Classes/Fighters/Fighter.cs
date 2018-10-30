@@ -1,11 +1,11 @@
 ﻿using GameMechanics.Creatures;
 using GameMechanics.Dice;
 
-namespace GameMechanics.Classes
+namespace GameMechanics.Classes.Fighters
 {
-    public class Monk : Class
+    public class Fighter : Class
     {
-        private Die _hitDie = new d8();
+        private Die _hitDie = new d10();
         public override Die HitDie { get { return _hitDie; } }
 
         public override void LevelUp(Creature creature)

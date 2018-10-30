@@ -1,6 +1,7 @@
 ﻿using GameMechanics.Actions.Spells;
 using GameMechanics.Actions.Spells.Evocation.Level0;
 using GameMechanics.Actions.Spells.Evocation.Level1;
+using GameMechanics.Actions.Spells.Evocation.Level2;
 using GameMechanics.Creatures;
 using GameMechanics.Enums;
 using GameMechanics.Traits;

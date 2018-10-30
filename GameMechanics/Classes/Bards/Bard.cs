@@ -1,11 +1,11 @@
 ﻿using GameMechanics.Creatures;
 using GameMechanics.Dice;
 
-namespace GameMechanics.Classes
+namespace GameMechanics.Classes.Bards
 {
-    public class Sorceror : Class
+    public class Bard : Class
     {
-        private Die _hitDie = new d6();
+        private Die _hitDie = new d8();
         public override Die HitDie { get { return _hitDie; } }
 
         public override void LevelUp(Creature creature)

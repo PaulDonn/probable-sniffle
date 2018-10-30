@@ -1,9 +1,9 @@
 ﻿using GameMechanics.Creatures;
 using GameMechanics.Dice;
 
-namespace GameMechanics.Classes
+namespace GameMechanics.Classes.Warlocks
 {
-    public class Cleric : Class
+    public class Warlock : Class
     {
         private Die _hitDie = new d8();
         public override Die HitDie { get { return _hitDie; } }

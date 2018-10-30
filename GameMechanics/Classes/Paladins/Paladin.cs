@@ -1,7 +1,7 @@
 ﻿using GameMechanics.Creatures;
 using GameMechanics.Dice;
 
-namespace GameMechanics.Classes
+namespace GameMechanics.Classes.Paladins
 {
     public class Paladin : Class
     {

@@ -1,9 +1,9 @@
 ﻿using GameMechanics.Creatures;
 using GameMechanics.Dice;
 
-namespace GameMechanics.Classes
+namespace GameMechanics.Classes.Monks
 {
-    public class Bard : Class
+    public class Monk : Class
     {
         private Die _hitDie = new d8();
         public override Die HitDie { get { return _hitDie; } }

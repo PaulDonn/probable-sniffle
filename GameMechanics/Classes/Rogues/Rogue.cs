@@ -1,11 +1,11 @@
 ﻿using GameMechanics.Creatures;
 using GameMechanics.Dice;
 
-namespace GameMechanics.Classes
+namespace GameMechanics.Classes.Rogues
 {
-    public class Wizard : Class
+    public class Rogue : Class
     {
-        private Die _hitDie = new d6();
+        private Die _hitDie = new d8();
         public override Die HitDie { get { return _hitDie; } }
 
         public override void LevelUp(Creature creature)
