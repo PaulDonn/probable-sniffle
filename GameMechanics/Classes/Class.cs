@@ -8,11 +8,34 @@ namespace GameMechanics.Classes
     {
         public abstract Die HitDie { get; }
 
-        public abstract void LevelUp(Creature creature);
+        public virtual void AddLevelOne(Creature creature)
+        {
+            if(creature.AbilityScores != null)
+            {
+                creature.SetMaxHP(HitDie.Sides + creature.AbilityScores.ConstitutionModifier);
+            }
+            else
+            {
+                creature.SetMaxHP(HitDie.Sides);
+            }
+        }
 
-        //public abstract void AddLevelOne(Creature creature);
+        public virtual void RemoveLevelOne(Creature creature)
+        {
+            creature.SetMaxHP(1);
+        }
 
-        //public abstract void RemoveLevelOne(Creature creature);
+        public virtual void LevelUp(Creature creature)
+        {
+            if (creature.AbilityScores != null)
+            {
+                creature.SetMaxHP(creature.MaxHitPoints + HitDie.Roll() + creature.AbilityScores.ConstitutionModifier);
+            }
+            else
+            {
+                creature.SetMaxHP(creature.MaxHitPoints + HitDie.Roll());
+            }
+        }
 
         public void AddClassTraits(Creature creature)
         {
