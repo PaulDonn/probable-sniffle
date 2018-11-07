@@ -1,5 +1,7 @@
-﻿using GameMechanics.Creatures;
+﻿using System.Collections.Generic;
+using GameMechanics.Creatures;
 using GameMechanics.Dice;
+using GameMechanics.Enums;
 
 namespace GameMechanics.Classes.Barbarians
 {
@@ -21,6 +23,21 @@ namespace GameMechanics.Classes.Barbarians
         public override void LevelUp(Creature creature)
         {
             base.LevelUp(creature);
+        }
+
+        protected override void AddSavingThrows(List<Ability> savingThrows)
+        {
+            savingThrows.AddRange(new List<Ability>
+            {
+                Ability.Strength,
+                Ability.Constitution
+            });
+        }
+
+        protected override void RemoveSavingThrows(List<Ability> savingThrows)
+        {
+            savingThrows.Remove(Ability.Strength);
+            savingThrows.Remove(Ability.Constitution);
         }
     }
 }

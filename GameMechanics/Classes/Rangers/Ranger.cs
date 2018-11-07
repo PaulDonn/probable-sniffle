@@ -1,5 +1,7 @@
 ﻿using GameMechanics.Creatures;
 using GameMechanics.Dice;
+using GameMechanics.Enums;
+using System.Collections.Generic;
 
 namespace GameMechanics.Classes.Rangers
 {
@@ -21,6 +23,21 @@ namespace GameMechanics.Classes.Rangers
         public override void LevelUp(Creature creature)
         {
             base.LevelUp(creature);
+        }
+
+        protected override void AddSavingThrows(List<Ability> savingThrows)
+        {
+            savingThrows.AddRange(new List<Ability>
+            {
+                Ability.Strength,
+                Ability.Dexterity
+            });
+        }
+
+        protected override void RemoveSavingThrows(List<Ability> savingThrows)
+        {
+            savingThrows.Remove(Ability.Strength);
+            savingThrows.Remove(Ability.Dexterity);
         }
     }
 }
