@@ -43,6 +43,8 @@ namespace GameMechanics.Races.PlayerRaces
         protected override void RemoveProficiencies(ProficiencySet proficiencySet)
         {
             base.RemoveProficiencies(proficiencySet);
+            proficiencySet.ArmourProficiencies.Remove(ArmourProficiency.LightArmour);
+            proficiencySet.ArmourProficiencies.Remove(ArmourProficiency.MediumArmour);
         }
     }
 }

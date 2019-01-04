@@ -7,5 +7,10 @@ namespace GameMechanics.Traits
     public abstract class Trait
     {
         public abstract string Name { get; }
+
+        public virtual object Use()
+        {
+            return null;
+        }
     }
 }

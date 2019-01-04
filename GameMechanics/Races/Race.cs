@@ -31,6 +31,7 @@ namespace GameMechanics.Races
         public void AddRaceTraits(Creature creature)
         {
             AddAbilityScoreIncreases(creature.AbilityScores);
+            AddSavingThrows(creature.SavingThrows);
             AddProficiencies(creature.ProficiencySet);
             AddTraitsAndFeatures(creature.Traits);
             AddLanguages(creature.Languages);
@@ -40,6 +41,7 @@ namespace GameMechanics.Races
         public void RemoveRaceTraits(Creature creature)
         {
             RemoveAbilityScoreIncreases(creature.AbilityScores);
+            RemoveSavingThrows(creature.SavingThrows);
             RemoveProficiencies(creature.ProficiencySet);
             RemoveTraitsAndFeatures(creature.Traits);
             RemoveLanguages(creature.Languages);
@@ -52,6 +54,16 @@ namespace GameMechanics.Races
         }
 
         protected virtual void RemoveAbilityScoreIncreases(AbilityScores scores)
+        {
+            return;
+        }
+
+        protected virtual void AddSavingThrows(List<Ability> savingThrows)
+        {
+            return;
+        }
+
+        protected virtual void RemoveSavingThrows(List<Ability> savingThrows)
         {
             return;
         }
@@ -102,6 +114,36 @@ namespace GameMechanics.Races
         }
 
         protected virtual void RemoveSpells(List<Spell> spells)
+        {
+            return;
+        }
+
+        protected virtual void AddDamageResistances(List<DamageType> resistances)
+        {
+            return;
+        }
+
+        protected virtual void RemoveDamageResistances(List<DamageType> resistances)
+        {
+            return;
+        }
+
+        protected virtual void AddDamageImmunities(List<DamageType> immunities)
+        {
+            return;
+        }
+
+        protected virtual void RemoveDamageImmunities(List<DamageType> immunities)
+        {
+            return;
+        }
+
+        protected virtual void AddDamageWeaknesses(List<DamageType> weaknesses)
+        {
+            return;
+        }
+
+        protected virtual void RemoveDamageWeaknesses(List<DamageType> weaknesses)
         {
             return;
         }
