@@ -1,4 +1,5 @@
 ﻿using GameMechanics.Actions.Spells;
+using GameMechanics.Actions.Spells.Evocation.Level0;
 using GameMechanics.Creatures;
 using GameMechanics.Enums;
 using System;
@@ -9,15 +10,19 @@ namespace GameMechanics.Races.PlayerRaces
 {
     public class HighElf : Elf
     {
-        public Spell Cantrip;
+        private Spell Cantrip;
 
-        public Language Language;
+        private Language Language;
 
         public HighElf(Spell cantrip, Language language)
         {
             if(cantrip.MinSpellLevel == 0)
             {
                 Cantrip = cantrip;
+            }
+            else
+            {
+                Cantrip = new DancingLights();
             }
             Language = language;
         }
