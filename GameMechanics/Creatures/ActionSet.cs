@@ -14,7 +14,7 @@ namespace GameMechanics.Creatures
         
         public void Refresh(int speed)
         {
-            RemainingMovement = (speed / 5);
+            RemainingMovement = (speed);
             HasAction = true;
             HasBonusAction = true;
             HasReaction = true;
@@ -23,7 +23,7 @@ namespace GameMechanics.Creatures
 
         public void Dash(int speed)
         {
-            RemainingMovement += (speed/5);
+            RemainingMovement += (speed);
         }
 
         public void Move(int units)

@@ -1,11 +1,13 @@
 ﻿using GameMechanics.Actions.Spells;
 using GameMechanics.Actions.Spells.Conjuration.Level0;
 using GameMechanics.Actions.Spells.Evocation.Level1;
-using GameMechanics.Classes;
+using GameMechanics.Classes.Fighters;
+using GameMechanics.Classes.Wizards;
 using GameMechanics.Creatures;
 using GameMechanics.Dice;
 using GameMechanics.Encounters;
 using GameMechanics.Encounters.Tiles;
+using GameMechanics.Enums;
 using GameMechanics.Equipments.Armours.LightArmour;
 using GameMechanics.Equipments.Weapons.SimpleMeleeWeapons;
 using GameMechanics.Races;
@@ -200,13 +202,13 @@ namespace DnD
                         switch (command)
                         {
                             case "1":
-                                race = new HillDwarf();
+                                race = new HillDwarf(ToolProficiency.BrewerSupplies);
                                 break;
                             case "2":
-                                race = new MountainDwarf();
+                                race = new MountainDwarf(ToolProficiency.MasonTools);
                                 break;
                             case "3":
-                                race = new HighElf();
+                                race = new HighElf(new AcidSplash(), Language.Sylvan);
                                 break;
                             case "4":
                                 race = new WoodElf();
@@ -266,7 +268,7 @@ namespace DnD
 
             Creature creature1 = new Creature();
             creature1.SetName("Character1");
-            creature1.SetRace(new HillDwarf());
+            creature1.SetRace(new HillDwarf(ToolProficiency.BrewerSupplies));
             creature1.SetClass(new Fighter());
             creature1.SetFaction("Goodies");
             creature1.SetAbilityScores(new AbilityScores

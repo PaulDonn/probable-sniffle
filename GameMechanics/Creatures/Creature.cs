@@ -13,6 +13,7 @@ using GameMechanics.Equipments.Weapons;
 using GameMechanics.Equipments.Weapons.Ammunitions;
 using System.Linq;
 using GameMechanics.Actions.Spells;
+using GameMechanics.Traits;
 
 namespace GameMechanics.Creatures
 {
@@ -31,12 +32,13 @@ namespace GameMechanics.Creatures
         public int ExperiencePoints { get; private set; }
         public Background Background { get; private set; }
         public Alignment Alignment { get; private set; }
-        public int ArmourClass { get { return CalculateAC(); } }
+        public int ArmourClass { get { return GetAC(); } }
         public int Initiative { get; private set; }
         public int ProficiencyBonus { get { return GetProficiencyBonus(); } }
         public AbilityScores AbilityScores { get; private set; }
         public List<Ability> SavingThrows { get; private set; }
         public List<Skill> Skills { get; private set; }
+        public List<Trait> Traits { get; private set; }
         public ProficiencySet ProficiencySet { get; private set; }
         public ActionSet ActionSet { get; private set; }
         public int MaxHitPoints { get; private set; }
@@ -53,7 +55,7 @@ namespace GameMechanics.Creatures
         public List<DamageType> Immunities { get; private set; }
         public List<DamageType> Weaknesses { get; private set; }
         public CreatureState Status { get; private set; }
-        public List<Condition> Conditions { get; set; }
+        public List<ActiveCondition> Conditions { get; set; }
         public int DeathSavingThrowSuccesses { get; private set; }
         public int DeathSavingThrowFailures { get; private set; }
         public Inventory Inventory { get; private set; }
@@ -68,9 +70,10 @@ namespace GameMechanics.Creatures
             AbilityScores = new AbilityScores();
             SavingThrows = new List<Ability>();
             Skills = new List<Skill>();
+            Traits = new List<Trait>();
             Inventory = new Inventory { Equipment = new List<Equipment>()};
             EquipmentSet = new EquipmentSet();
-            Conditions = new List<Condition>();
+            Conditions = new List<ActiveCondition>();
             Resistances = new List<DamageType>();
             Immunities = new List<DamageType>();
             Weaknesses = new List<DamageType>();
@@ -151,6 +154,28 @@ namespace GameMechanics.Creatures
 
         #region Getters and Updaters
 
+        public void LevelUp()
+        {
+            Level += 1;
+            LevelUpRace();
+            LevelUpClass();
+        }
+
+        public void LevelUpRace()
+        {
+            Race.LevelUp(this);
+        }
+
+        public void LevelUpClass()
+        {
+            Class.LevelUp(this);
+        }
+
+        public void IncreaseMaxHP(int hp)
+        {
+            MaxHitPoints += Math.Abs(hp);
+        }
+
         private int GetProficiencyBonus()
         {
             var level = Level;
@@ -182,7 +207,7 @@ namespace GameMechanics.Creatures
             }
         }
 
-        public int CalculateAC()
+        public int GetAC()
         {
             var ac = 10;
             //Get Race AC Bonus
@@ -200,7 +225,7 @@ namespace GameMechanics.Creatures
             //Get Shield AC Bonus
             if (EquipmentSet.Shield != null && ProficiencySet.ArmourProficiencies.Contains(ArmourProficiency.Shields))
             {
-                ac += 2;
+                ac += 2 + EquipmentSet.Shield.PlusFactor;
             }
 
             //Get Cover AC Bonus
@@ -208,6 +233,43 @@ namespace GameMechanics.Creatures
             //Get Spell Effect AC Bonus
 
             return ac;
+        }
+
+        public List<Condition> GetConditionResistances()
+        {
+            var conditions = new List<Condition>();
+
+            //Get Race Condition Resistancesif (Race != null)
+            {
+                conditions.AddRange(Race.GetConditionResistances());
+            }
+
+            //Get Class Condition Resistances
+
+            //Get Archetype Condition Resistances
+
+            //Get Spell Effect Condition Resistances
+
+            return conditions;
+        }
+
+        public List<Condition> GetConditionImmunities()
+        {
+            var conditions = new List<Condition>();
+
+            //Get Race Condition Immunities
+            if (Race != null)
+            {
+                conditions.AddRange(Race.GetConditionImmunities());
+            }
+
+            //Get Class Condition Immunities
+
+            //Get Archetype Condition Immunities
+
+            //Get Spell Effect Condition Immunities
+
+            return conditions;
         }
 
         public CreatureState UpdateStatus()
