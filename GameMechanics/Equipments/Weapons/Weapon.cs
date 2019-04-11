@@ -51,13 +51,13 @@ namespace GameMechanics.Equipments.Weapons
             {
                 actions.Add(string.Format("{0} - {1} - {2} - {3}", "Attack", Name, "Melee Weapon Attack", "Action"));
             }
-            if (IsRanged)
-            {
-                actions.Add(string.Format("{0} - {1} - {2} - {3}", "Attack", Name, "Ranged Weapon Attack", "Action"));
-            }
             if (IsThrown)
             {
                 actions.Add(string.Format("{0} - {1} - {2} - {3}", "Throw", Name, "Ranged Weapon Attack", "Action"));
+            }
+            else if (IsRanged)
+            {
+                actions.Add(string.Format("{0} - {1} - {2} - {3}", "Attack", Name, "Ranged Weapon Attack", "Action"));
             }
 
             return actions;
@@ -165,7 +165,7 @@ namespace GameMechanics.Equipments.Weapons
                                     return;
                                 }
                             }
-                            else if (IsThrown && attacker.AbilityScores.StrengthModifier > attacker.AbilityScores.DexterityModifier)
+                            else if (((!IsRanged) || (IsRanged && IsFinesse)) && attacker.AbilityScores.StrengthModifier > attacker.AbilityScores.DexterityModifier))
                             {
                                 abilityModifier = attacker.AbilityScores.StrengthModifier;
                                 if (attacker.EquipmentSet.Weapon1 == this)
