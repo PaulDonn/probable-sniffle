@@ -1,7 +1,8 @@
 ﻿using GameMechanics.Actions.Spells;
 using GameMechanics.Actions.Spells.Conjuration.Level0;
 using GameMechanics.Actions.Spells.Evocation.Level1;
-using GameMechanics.Classes;
+using GameMechanics.Classes.Fighters;
+using GameMechanics.Classes.Wizards;
 using GameMechanics.Creatures;
 using GameMechanics.Dice;
 using GameMechanics.Encounters;

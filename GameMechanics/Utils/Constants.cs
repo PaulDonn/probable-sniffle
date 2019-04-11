@@ -29,6 +29,8 @@ namespace GameMechanics.Utils
         public static readonly string NaturallyStealthy = "Naturally Stealthy";
 
         //Spells
-        public static readonly string DancingLights = "DancingLights";
+        public static readonly string DancingLights = "Dancing Lights";
+        public static readonly string Darkness = "Darkness";
+        public static readonly string FaerieFire = "Faerie Fire";
     }
 }
