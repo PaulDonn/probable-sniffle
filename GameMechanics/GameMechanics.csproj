@@ -45,8 +45,6 @@
     <Folder Include="Actions\Spells\Enchantment\Level7\" />
     <Folder Include="Actions\Spells\Enchantment\Level8\" />
     <Folder Include="Actions\Spells\Enchantment\Level9\" />
-    <Folder Include="Actions\Spells\Evocation\Level0\" />
-    <Folder Include="Actions\Spells\Evocation\Level2\" />
     <Folder Include="Actions\Spells\Evocation\Level3\" />
     <Folder Include="Actions\Spells\Evocation\Level4\" />
     <Folder Include="Actions\Spells\Evocation\Level5\" />

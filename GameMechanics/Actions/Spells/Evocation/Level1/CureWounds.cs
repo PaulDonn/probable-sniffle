@@ -1,5 +1,7 @@
 ﻿using GameMechanics.Creatures;
 using GameMechanics.Dice;
+using GameMechanics.Encounters;
+using GameMechanics.Encounters.Tiles;
 using GameMechanics.Enums;
 using System.Collections.Generic;
 
@@ -17,7 +19,7 @@ namespace GameMechanics.Actions.Spells.Evocation.Level1
 
         public override Range Range { get { return Range.Touch; } }
 
-        public override void CastSpell(Creature caster, List<Creature> targets, int level)
+        public override void CastSpell(CombatEncounter combatEncounter, Creature caster, List<Creature> targets, Tile targetTile, int level)
         {
             using (var d8 = new d8())
             {
