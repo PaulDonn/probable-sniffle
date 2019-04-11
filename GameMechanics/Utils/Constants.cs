@@ -24,6 +24,9 @@ namespace GameMechanics.Utils
 
         //Traits and Features
         public static readonly string Darkvision = "Darkvision";
+        public static readonly string Lucky = "Lucky";
+        public static readonly string HalflingNimbleness = "Halfling Nimbleness";
+        public static readonly string NaturallyStealthy = "Naturally Stealthy";
 
         //Spells
         public static readonly string DancingLights = "Dancing Lights";
